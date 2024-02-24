@@ -1,84 +1,130 @@
+/* Corpo do CSS*/
 * {
     padding: 0;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    box-sizing: border-box;
 }
 
 body {
     width: 100%;
-    min-height: 100vh;
+    height: 100%;
+    overflow-x: hidden;
 }
 
-section {
+*::-webkit-scrollbar {
+    width: 0px;
+}
+
+*::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0);
+    width: 0%;
+    height: 0;
+}
+
+/* esse section está englobado todo o conteudo foco do site: Logo e quem somos */
+.conteudosection {
     width: 100%;
     height: 100vh;
     position: relative;
-    overflow-y: hidden;
 }
 
-section div.background-section {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 0;
-}
 
-section div.background-section video{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    object-fit: cover;
-    object-position: center;
-}
-
-section div.box {
+/* a Div box mosstra todos os conteudos da section*/
+.box {
     width: 100%;
     height: 100%;
     position: relative;
     z-index: 1;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), Transparent);
-    align-items: center;
-    justify-content: center;
+    background: linear-gradient(to top, rgba(0, 0, 0, 10), Transparent);
     display: flexbox;
 }
 
-section div.box  div.conteudo {
+.boxconteudo {
     width: 100%;
     text-align: center;
 }
 
-section div.box img {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
+/* logo do aether*/
+.logoaether {
+    width: 25%;
+    margin-top: 25px;
+    animation-duration: 3s;
+    animation-name: slidein;
 }
 
-section div.box p {
+/* animação aether*/
+@keyframes slidein {
+    from {
+        width: 50%;
+    }
+    to {
+        margin: 0%;
+        width: 25%;
+        margin-top: 25px;
+    }
+}
+
+/* navbar para definir o fundo do conteudo*/
+.QuemSomos {
+    background-color: rgba(5, 59, 129, 0.836);
+    margin-left: 20%;
+    margin-right: 20%;
+    border-radius: 50px;
+    border-style: outset;
+    min-height: 5%;
+    min-width: 60%;
+    position: fixed;
+}
+
+/* fonte 8 bits*/
+@font-face {
+    font-family: 'fontebits';
+    src: url(../Fontes/Minercraftory.ttf);
+}
+
+/* animação do texto das letras 8 bits*/
+@keyframes maquina {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+}
+
+.QuemSomosTXT {
     color: white;
-    font-size: 24px;
+    font-family: fontebits;
+    font-size: 19px;
+    animation: maquina 4s linear;
+    overflow: hidden;
 }
 
-@media screen and (max-width: 1024px){
-    section div.box {
-        width: 100%;
-        z-index: 1;
-        background: linear-gradient(to right, rgba(0, 0, 0, 0.5), Transparent);
-    }
-    
-    section div.box  div.conteudo {
-        width: 100%;
-        text-align: center;  
-    }
-    
-    section div.box img {
-        width: 100%;
-        max-width: 300px;
-        height: auto;
-    }
-    
-    section div.box p {
-        color: white;
-        font-size: 24px;
-    }
+
+
+
+
+
+
+
+
+
+
+/* Parte do video */
+.background-section {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.background-section video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    object-fit: contain;
 }
